@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pankaj.dojoin.ui.video_recording.VideoRecordingViewModel" />
+    </data>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <com.otaliastudios.cameraview.CameraView
+                        android:id="@+id/camera"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:keepScreenOn="true"
+
+                        android:soundEffectsEnabled="false"
+                        app:cameraAudio="off"
+                        app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"
+                        app:cameraEngine="camera1"
+                        app:cameraExperimental="true"
+                        app:cameraFacing="back"
+                        app:cameraGestureLongTap="none"
+                        app:cameraGesturePinch="zoom"
+                        app:cameraGestureScrollHorizontal="filterControl1"
+                        app:cameraGestureScrollVertical="exposureCorrection"
+                        app:cameraGestureTap="autoFocus"
+                        app:cameraGrid="off"
+                        app:cameraMode="video"
+                        app:cameraPlaySounds="true"
+                        app:cameraPreview="glSurface"
+                        app:cameraPreviewFrameRate="30"
+                        app:cameraRequestPermissions="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_margin="5dp">
+
+
+                        <com.pankaj.dojoin.utils.segment_progress.SegmentedProgressBar
+                            android:id="@+id/video_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/fifty_transparent_black" />
+
+
+                    </RelativeLayout>
+
+
+
+<!--
+                    <LinearLayout
+                        android:id="@+id/camera_options"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+
+                        android:layout_above="@id/rlBottomCamera"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.cameraClickable ? View.VISIBLE : View.GONE}">
+
+                        <ImageButton
+                            android:id="@+id/rotate_camera"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@color/transparent"
+                            android:onClick="@{viewModel::RotateCamera}"
+                            android:padding="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_rotate_cam"
+                            android:visibility="@{viewModel.isRecording ? View.GONE : View.VISIBLE}" />
+
+                        <ImageButton
+                            android:id="@+id/flash_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@color/transparent"
+
+                            android:onClick="@{viewModel::onFlashClick}"
+                            android:padding="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@{viewModel.isRecording ? @drawable/ic_flash_off : @drawable/ic_flash_on}" />
+
+                        <ImageButton
+                            android:id="@+id/time_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@color/transparent"
+                            android:onClick="@{viewModel::onTimerClick}"
+
+                            android:padding="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_timer" />
+
+                        <ImageButton
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@color/transparent"
+                            android:onClick="@{viewModel::onFilterClick}"
+
+                            android:padding="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_filter_ic" />
+
+
+                    </LinearLayout>
+-->
+
+                    <RelativeLayout
+                        android:id="@+id/rlBottomCamera"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="15dp">
+
+                        <ImageButton
+                            android:id="@+id/record_image"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/transparent"
+                            android:onClick="@{viewModel::onRecordClick}"
+                            android:scaleType="fitCenter"
+
+                            android:src="@{viewModel.isRecording ? @drawable/ic_recoding_yes : @drawable/ic_recoding_no}" />
+
+
+
+                        <ImageButton
+                            android:id="@+id/done_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_centerVertical="true"
+                            android:background="@color/transparent"
+                            android:onClick="@{viewModel::onDoneClick}"
+                            android:padding="3dp"
+                            android:enabled="@{viewModel.doneClickable}"
+
+                            android:scaleType="fitCenter"
+                            android:src="@{viewModel.doneClickable ? @drawable/ic_done :  @drawable/ic_not_done }"
+
+                            />
+                        <!--                android:clickable="@{viewModel.isRecording ? true : false"-->
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/countdown_timer_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:shadowColor="@color/dark_gray"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="3"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="100sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+            </FrameLayout>
+
+</layout>

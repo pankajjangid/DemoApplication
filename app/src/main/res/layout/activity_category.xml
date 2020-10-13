@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pankaj.dojoin.ui.category.CategoryViewModel" />
+        <variable
+            name="adapter"
+            type="com.pankaj.dojoin.ui.category.adapter.CustomExpandableListAdapter" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:padding="@dimen/_10sdp"
+
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".ui.category.CategoryActivity">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:title="Service Category" />
+
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select your service category &amp; profession"
+            android:layout_marginBottom="@dimen/_10sdp"
+            style="@style/TextAppearance.AppCompat.Body1"/>
+        <ExpandableListView
+            android:id="@+id/expendableList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:groupIndicator="@null"
+
+            adapter="@{adapter}"
+            android:dividerHeight="0.5dp" />
+    </LinearLayout>
+</layout>

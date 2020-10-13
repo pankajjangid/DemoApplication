@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.pankaj.dojoin.ui.categroy_selection.SelectionViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.categroy_selection.SelectionActivity">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:title="General Information" />
+
+      <androidx.core.widget.NestedScrollView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/_16sdp">
+
+
+              <TextView
+                  style="@style/TextAppearance.AppCompat.Title"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="start"
+                  android:text="@string/how_people_may_reach_you" />
+
+              <RadioGroup
+                  android:id="@+id/rgPeopleReach"
+
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:orientation="vertical">
+
+                  <androidx.appcompat.widget.AppCompatRadioButton
+                      android:id="@+id/rbInPerson"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_10sdp"
+
+                      android:text="@string/in_person"
+                      android:textColor="@android:color/black" />
+
+                  <androidx.appcompat.widget.AppCompatRadioButton
+                      android:id="@+id/rbOnline"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      android:enabled="false"
+
+                      android:text="@string/online_coming_soon"
+
+                      android:textColor="@color/grey" />
+              </RadioGroup>
+
+              <View
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/_1sdp"
+
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:background="@color/grey" />
+
+
+              <LinearLayout
+
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:visibility="@{viewModel.personReachStatus == viewModel.PersonReachStatus.NONE ? View.GONE : View.VISIBLE}">
+
+                  <TextView
+                      style="@style/TextAppearance.AppCompat.Subhead"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_10sdp"
+
+                      android:gravity="start"
+                      android:text="@string/your_services_are_presented_locally_people_will_either_come_to_your_store_or_meet_you_in_their_own_places"
+                      android:textColor="@color/grey_dark" />
+
+
+                  <TextView
+                      style="@style/TextAppearance.AppCompat.Title"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      android:gravity="start"
+
+                      android:text="@string/how_to_make_appointments_with_you" />
+
+                  <RadioGroup
+                      android:id="@+id/rgAppointment"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      android:orientation="vertical">
+
+                      <androidx.appcompat.widget.AppCompatRadioButton
+                          android:id="@+id/rbBookaTime"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/_10sdp"
+
+                          android:text="@string/book_a_time"
+                          android:textColor="@android:color/black" />
+
+                      <androidx.appcompat.widget.AppCompatRadioButton
+                          android:id="@+id/rbDropIn"
+
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/_10sdp"
+
+                          android:text="@string/drop_in"
+
+                          android:textColor="@android:color/black" />
+                  </RadioGroup>
+
+                  <View
+                      android:layout_width="match_parent"
+                      android:layout_height="@dimen/_1sdp"
+
+                      android:layout_marginTop="@dimen/_10sdp"
+                      android:background="@color/grey" />
+
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+
+                      android:orientation="vertical"
+                      android:visibility="@{viewModel.appointmentStatus == viewModel.AppointmentStatus.NONE ? View.GONE : View.VISIBLE}">
+
+                      <TextView
+                          style="@style/TextAppearance.AppCompat.Subhead"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/_10sdp"
+                          android:gravity="start"
+                          android:text="@{viewModel.appointmentStatus == viewModel.AppointmentStatus.BOOK_A_TIME ? @string/book_a_time_desc : @string/drop_in_desc}"
+                          android:textColor="@color/grey_dark" />
+
+                      <androidx.appcompat.widget.AppCompatButton
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/_10sdp"
+
+                          android:layout_gravity="center"
+                          android:background="#C91C49"
+
+                          android:text="@string/next"
+                          android:textColor="@android:color/white" />
+
+                      <androidx.appcompat.widget.AppCompatButton
+                          style="@style/Widget.AppCompat.Button.Borderless"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_marginTop="@dimen/_10sdp"
+
+                          android:text="@string/back"
+                          android:textColor="@android:color/black" />
+                  </LinearLayout>
+              </LinearLayout>
+          </LinearLayout>
+      </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

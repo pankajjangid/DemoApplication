@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Dojoin</string>
+    <string name="loading">Loading...</string>
+    <string name="in_person">In-Person</string>
+    <string name="how_people_may_reach_you">How people may reach you?</string>
+    <string name="online_coming_soon">Online (coming soon)</string>
+    <string name="your_services_are_presented_locally_people_will_either_come_to_your_store_or_meet_you_in_their_own_places">Your services are presented locally. People will either come to your store or meet you in their own places.</string>
+    <string name="how_to_make_appointments_with_you">How to make appointments with you?</string>
+    <string name="book_a_time">Book a time</string>
+    <string name="drop_in">Drop in</string>
+    <string name="book_a_time_desc">No need for pre-registration, people can stop by your business at any of the available times. </string>
+    <string name="drop_in_desc">Set a work schedule and people will need to book any of the available time slots to meet you. </string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+
+</resources>
